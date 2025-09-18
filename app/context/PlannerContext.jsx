@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { collection, addDoc, onSnapshot, updateDoc, deleteDoc, doc } from "firebase/firestore";
-import { db } from "../../firebaseConfig";   // <-- FIXED path
+import { addDoc, collection, deleteDoc, doc, onSnapshot, updateDoc } from "firebase/firestore";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { db } from "../../firebaseConfig"; // <-- FIXED path
 import { useAuth } from "./AuthContext";
 
 const PlannerContext = createContext();
@@ -69,3 +69,6 @@ export const usePlanner = () => {
   }
   return context;
 };
+
+// ✅ Default export to fix Expo Router warning
+export default PlannerProvider;
